@@ -7,8 +7,37 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ViewController: UIViewController {
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+//        http://ucardstorevideo.b0.upaiyun.com/userLogo/190A9788-710E-46AF-9847-7B9A32B845DF.png
+        
+        let imageView = UIImageView(image:UIImage(named:"123.jpg"))
+        imageView.frame = CGRect(x:10, y:30, width:300, height:300)
+        
+        let webImageUrl = URL.init(string: "http://ucardstorevideo.b0.upaiyun.com/userLogo/190A9788-710E-46AF-9847-7B9A32B845DF.png!/format/webp")
+        
+//        let imageUrl = URL.init(string: "http://ucardstorevideo.b0.upaiyun.com/userLogo/190A9788-710E-46AF-9847-7B9A32B845DF.png")
+        imageView.sd_setImage(with: webImageUrl, completed: nil)
+        self.view.addSubview(imageView)
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     @IBOutlet weak var helloButton: UIButton!
     @IBAction func showAlert(_ sender: AnyObject) {
@@ -17,17 +46,7 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil);
         self.helloButton.setTitle("Clicked", for: UIControl.State.normal);
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        //let关键字表示声明常量, 尝试修改常量的值是错误的
-        let sum = sumNumbers(numbers: 2, 3, 4, 5);
-        print(sum);
-        
-    }
-    
+
     //注意: 通常不需要定义变量的类型, 编译器会根据正在使用的值进行推断
     //定义一个名为sumNumbers的函数, 这个函数可以接受一个或多哥Int值作为参数, 返回Int
     //'...'表示这个函数可以接受不同数量的Int值作为参数.
